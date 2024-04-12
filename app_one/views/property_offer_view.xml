@@ -1,0 +1,52 @@
+<odoo>
+    <record id="property_offer_view_tree"  model="ir.ui.view">
+        <field name="name">property offer tree</field>
+        <field name="model">property.offer</field>
+        <field name="arch" type="xml">
+            <tree string="Property offers"
+                  editable="bottom"
+                  decoration-danger="status == 'refused'"
+                  decoration-success="status == 'accepted'">
+                <field name="price"/>
+                <field name="partner_id"/>
+                <field name="validity"/>
+                <field name="date_deadline"/>
+                <button name="accept_property_offer"
+                        help="accept offer"
+                        type="object"
+                        icon="fa-check"
+                        invisible="status in ('accepted','refused')"/>
+                <button name="refuse_property_offer"
+                        help="refuse offer"
+                        type="object"
+                        icon="fa-ban"
+                        invisible="status in ('accepted','refused')"/>
+                <field name="status" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="property_offer_view_form" model="ir.ui.view">
+        <field name="name">property offer form</field>
+        <field name="model">property.offer</field>
+        <field name="arch" type="xml">
+            <form string="Property offers">
+                <group>
+                    <field string="prop" name="property_status" invisible="1"/>
+                    <field name="price" readonly="property_status in ('sold','offer_accepted','canceled')"/>
+                    <field name="validity" readonly="property_status in ('sold','offer_accepted','canceled')"/>
+                    <field name="date_deadline" readonly="property_status in ('sold','offer_accepted','canceled')"/>
+                    <field name="partner_id" readonly="property_status in ('sold','offer_accepted','canceled')"/>
+                    <field name="status" readonly="property_status in ('sold','offer_accepted','canceled')"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="offer_action" model="ir.actions.act_window">
+        <field name="name">offers</field>
+        <field name="res_model">property.offer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('property_type_id', '=', active_id)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,76 @@
+<odoo>
+    <record id="property_type_view_tree" model="ir.ui.view">
+        <field name="name">property type tree</field>
+        <field name="model">property.type</field>
+        <field name="arch" type="xml">
+            <tree string="Settings">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="property_type_view_form" model="ir.ui.view">
+        <field name="name">property type form</field>
+        <field name="model">property.type</field>
+        <field name="arch" type="xml">
+            <form string="Property type">
+            <group>
+                <button type="action"
+                        name="%(offer_action)d">
+                    <field name="offer_count_text"/>
+                </button>
+                </group>
+            <sheet>
+                <group>
+                    <field name="name"/>
+<!--                            <field name="offer_count"/> used for testing if it works -/ -->
+                </group>
+    <notebook>
+        <page string="Properties">
+            <field name="property_ids">
+                <tree>
+                    <field name="name"/>
+                    <field name="expected_price"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </page>
+<!--        <page string="Offers"> used for testing if it works -/  -->
+<!--            <field name="offer_ids">-->
+<!--                <tree>-->
+<!--                    <field name="price"/>-->
+<!--                    <field name="status"/>-->
+<!--                    <field name="validity"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </page>-->
+                    </notebook>
+<!--                    </group>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="property_type_search" model="ir.ui.view">
+        <field name="name">property type search</field>
+        <field name="model">property.type</field>
+        <field name="arch" type="xml">
+            <search string="Property type">
+                <field name="name" string="Title" />
+            </search>
+        </field>
+    </record>
+
+    <record id="property_type_action" model="ir.actions.act_window">
+        <field name="name">property types</field>
+        <field name="res_model">property.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="property_type_menu_action"
+              name="property type"
+              action="property_type_action"
+              parent="property_type_first_level_menu"
+    />
+</odoo>
+<!-- action="property_type_action"-->
