@@ -6,8 +6,8 @@
             <Counter />
         </div>
         <div>
-            <Card title = "'card_001'" content="'card_001 content'"/>
-            <Card title = "'card_002'" content="'card_002 content'"/>
+            <Card title = "'card_001'" content="str1"/>
+            <Card title = "'card_002'" content="str2"/>
         </div>
     </t>
 </templates>
