@@ -8,8 +8,8 @@
         <div>
             <Card title = "'card_001'" content="str1"/>
             <Card title = "'card_002'" content="str2"/>
-            <!-- <Card title = "'Sum is'" content="state.sum"/> -->
-            <p t-esc="state.sum"></p>
+            <Card title = "'card_002'" content="state.sum"/>
+            <TodoList />
         </div>
     </t>
 </templates>
