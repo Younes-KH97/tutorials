@@ -28,4 +28,13 @@ export class TodoList extends Component {
             
         }
     }
+
+    toggleState(id){
+        this.todos.map((todo) => {
+            if(todo.id === id){
+                todo.isCompleted === true ? todo.isCompleted = false : todo.isCompleted = true
+            }
+        })
+    
+}
 }
