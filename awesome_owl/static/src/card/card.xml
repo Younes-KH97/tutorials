@@ -4,7 +4,10 @@
         <div class="card d-inline-block m-2" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><t t-out="props.title"/></h5>
-                     <t t-slot="default" />   
+                <button t-on-click="onToggleState">vli </button>
+                <p t-if="toggleState.value === true">
+                    <t t-slot="default"/> 
+                </p>
             </div>
         </div>
     </t>

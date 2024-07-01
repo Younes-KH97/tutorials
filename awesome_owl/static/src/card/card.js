@@ -1,5 +1,5 @@
 /** @odoo-module **/
-import { Component } from "@odoo/owl";
+import { Component, useState } from "@odoo/owl";
 
 export class Card extends Component {
     static template = "awesome_owl.Card"
@@ -12,5 +12,11 @@ export class Card extends Component {
                 default: true
             },
         }
+    }
+    setup(){
+        this.toggleState = useState({value : true});
+    }
+    onToggleState() {
+        this.toggleState.value = !this.toggleState.value
     }
 }
