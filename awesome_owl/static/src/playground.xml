@@ -6,9 +6,17 @@
             <Counter onChange.bind="incrementSum"/>
         </div>
         <div>
-            <Card title = "'card_001'" content="str1"/>
+            <!-- <Card title = "'card_001'" content="str1"/>
             <Card title = "'card_002'" content="str2"/>
-            <Card title = "'card_002'" content="state.sum"/>
+            <Card title = "'card_002'" content="state.sum"/> -->
+            <Card title = "'card_002'">
+                <p class="card-text">ff</p>
+                <p class="card-text">ff</p>
+                <Counter onChange.bind="incrementSum"/>
+            </Card>
+            <Card title = "'card_002'">
+                <p class="card-text"><t t-esc="state.sum"/></p>
+            </Card>
             <TodoList />
         </div>
     </t>
