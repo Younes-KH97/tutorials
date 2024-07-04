@@ -2,7 +2,26 @@
 <templates xml:space="preserve">
 
     <t t-name="awesome_dashboard.AwesomeDashboard">
-        hello dashboard
+        <Layout display="this.display" className="'o_dashboard h-100'">
+            <t t-set-slot="layout-buttons" > 
+               <button className="'btn_control'" t-on-click="showCustomersView"> Customers </button>       
+               <button className="'btn_control'" t-on-click="showLeadsView"> Leads </button>       
+            </t>
+            <div class="d-flex flex-wrap">
+                <DashboardItem>
+                    <div>average_quantity <t t-esc="statistics.average_quantity"/></div> 
+                    <div>average_time <t t-esc="statistics.average_time"/></div> 
+                    <div><t t-esc="statistics.nb_new_orders"/></div> 
+                </DashboardItem>
+                <DashboardItem size="2">
+                    <p> text_1</p> 
+                    <t t-esc="readResult()"/>
+                </DashboardItem>
+                <DashboardItem>
+                    <p>text_1</p> 
+                </DashboardItem>
+            </div>
+        </Layout>
     </t>
 
 </templates>
