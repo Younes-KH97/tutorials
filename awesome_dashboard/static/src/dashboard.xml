@@ -20,6 +20,10 @@
                 <DashboardItem>
                     <p>text_1</p> 
                 </DashboardItem>
+                <DashboardItem>
+                    <PieChart />
+                </DashboardItem>
+                
             </div>
         </Layout>
     </t>
